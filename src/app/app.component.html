@@ -1,5 +1,20 @@
 <ul>
-  <li *ngFor="let menu of menus">
-    <a href="#">{{ menu.title }}</a>
+  <li
+    *ngFor="
+      let menu of menus;
+      let i = index;
+      let first = first;
+      let even = even;
+      let odd = odd
+      trackBy: menu ? menu.title : null
+    "
+  >
+    <a
+      href="#"
+      [class.active]="i === selectedIndex"
+      [class.first]="first"
+      (click)="handleSelection(i)"
+      >{{ menu.title }}</a
+    >
   </li>
 </ul>

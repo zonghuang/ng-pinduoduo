@@ -21,6 +21,7 @@ interface Dict {
 })
 export class AppComponent {
   title = '拼多多';
+  selectedIndex = -1;
   menus: TopMenu[] = [
     {
       id: 1,
@@ -111,6 +112,10 @@ export class AppComponent {
 
   constructor() {
 
+  }
+
+  handleSelection(index: number) {
+    this.selectedIndex = index;
   }
 
 }

@@ -18,3 +18,11 @@ a {
 ::-webkit-scrollbar {
   display: none;
 }
+
+.active {
+  color: red;
+}
+
+.first {
+  color: green;
+}
