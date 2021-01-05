@@ -11,9 +11,9 @@
     <a
       href="#"
       [class.active]="i === selectedIndex"
-      [class.first]="first"
       (click)="handleSelection(i)"
-      >{{ menu.title }}</a
-    >
+      >{{ menu.title }}
+    </a>
+    <span class="indicator" *ngIf="i === selectedIndex"></span>
   </li>
 </ul>
