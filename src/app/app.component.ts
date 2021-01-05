@@ -8,6 +8,7 @@ import { TopMenu } from './components';
 })
 export class AppComponent {
   title = '拼多多';
+  scrollableTabBgColor = 'red';
   topMenus: TopMenu[] = [
     {
       id: 1,
@@ -99,6 +100,9 @@ export class AppComponent {
   constructor() {}
 
   handleTabSelected(topMenu: TopMenu) {
+    const colors = ['red', 'blue', 'black'];
+    const idx = Math.floor(Math.random() * 3);
+    this.scrollableTabBgColor = colors[idx];
     console.log(topMenu);
   }
 }
