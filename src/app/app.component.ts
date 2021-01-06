@@ -128,6 +128,7 @@ export class AppComponent {
       "caption": ""
     }
   ];
+  username = '';
 
   // 起别名
   // @ViewChild('imageSlider') imgSlider: ImageSliderComponent;
