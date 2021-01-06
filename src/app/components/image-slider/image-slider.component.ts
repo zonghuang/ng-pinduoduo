@@ -1,4 +1,15 @@
-import { Component, ElementRef, Input, OnInit, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  OnInit,
+  QueryList,
+  Renderer2,
+  ViewChild,
+  ViewChildren,
+} from '@angular/core';
 
 export interface ImageSlider {
   id: number;
@@ -10,26 +21,59 @@ export interface ImageSlider {
 @Component({
   selector: 'app-image-slider',
   templateUrl: './image-slider.component.html',
-  styleUrls: ['./image-slider.component.scss']
+  styleUrls: ['./image-slider.component.scss'],
 })
-export class ImageSliderComponent implements OnInit {
-
+export class ImageSliderComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() sliders: ImageSlider[] = [];
-  @ViewChild('imageSlider', {static: true}) imgSlider: ElementRef;
-  @ViewChildren('img') imgs: QueryList<ElementRef>;
+  @Input() scrollHeight = '160px';
+  @Input() intervalBySeconds = 2;
+  selectedIndex = 0;
+  intervalId;
+  @ViewChild('imageSlider', { static: true }) imgSlider: ElementRef;
 
-  constructor(private rd2: Renderer2) { }
+  constructor(private rd2: Renderer2) {}
 
-  ngOnInit() {
-    console.log('ngOnInit', this.imgSlider);
-  }
+  ngOnInit() {}
 
   ngAfterViewInit(): void {
-    console.log('ngOnInit', this.imgs);
-    // this.imgs.forEach(item => item.nativeElement.style.height='100px');
-    this.imgs.forEach(item => {
-      this.rd2.setStyle(item.nativeElement, 'height', '100px')
-    });
+    this.intervalId = setInterval(() => {
+      this.rd2.setProperty(
+        this.imgSlider.nativeElement,
+        'scrollLeft',
+        (this.getIndex(++this.selectedIndex) *
+          this.imgSlider.nativeElement.scrollWidth) /
+          this.sliders.length
+      );
+    }, this.intervalBySeconds);
+    /*
+    let i = 0;
+    setInterval(() => {
+      this.rd2.setProperty(
+        this.imgSlider.nativeElement,
+        'scrollLeft',
+        ((++i % this.sliders.length) *
+          this.imgSlider.nativeElement.scrollWidth) /
+          this.sliders.length
+      );
+    }, this.intervalBySeconds);
+    */
   }
 
+  // 处理数组越界
+  getIndex(idx: number): number {
+    return idx >= 0
+      ? idx % this.sliders.length
+      : this.sliders.length - (Math.abs(idx) & this.sliders.length);
+  }
+
+  handleScroll(ev) {
+    const ratio =
+      (ev.target.scrollLeft * this.sliders.length) / ev.target.scrollWidth;
+    this.selectedIndex = Math.round(ratio);
+  }
+
+  // 处理内存泄漏
+  ngOnDestroy(): void {
+    clearInterval(this.intervalId);
+  }
 }
