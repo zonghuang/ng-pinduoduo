@@ -1,6 +1,6 @@
 <div class="container">
   <div class="image-slider" #imageSlider>
-    <img
+    <img #img
       *ngFor="let slider of sliders"
       [src]="slider.imgUrl"
       [alt]="slider.caption"
