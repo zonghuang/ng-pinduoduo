@@ -11,17 +11,6 @@
 <app-horizontal-grid>
   <span appGridItem *ngFor="let item of channels">
     <img appGridItemImage="2rem" [src]="item.icon" alt="" />
-    <span appGridItemTitle="1rem" class="title">{{ item.title }}</span>
+    <span appGridItemTitle="0.6rem" class="title">{{ item.title }}</span>
   </span>
-
-  <!-- <div appGridItem class="special">
-    <div appGridItemImage="2rem" style="background-color: red;"></div>
-    <div appGridItemImage="2rem"></div>
-    <span appGridItemTitle="1rem">Hello</span>
-  </div>
-  <div>
-    <div appGridItemImage="2rem"></div>
-    <span appGridItemTitle="1rem">Hello</span>
-  </div> -->
-
 </app-horizontal-grid>
