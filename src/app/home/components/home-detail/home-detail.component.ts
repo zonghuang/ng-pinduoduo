@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Channel, ImageSlider } from 'src/app/shared/components';
 
 @Component({
@@ -153,8 +154,17 @@ export class HomeDetailComponent implements OnInit {
       link: 'furnitures',
     },
   ];
+  selectedTabLink;
 
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      console.log('路径参数：', params);
+      this.selectedTabLink = params.get('tabLink');
+    });
+    this.route.queryParamMap.subscribe(params => {
+      console.log('查询参数：', params);
+    });
+  }
 }

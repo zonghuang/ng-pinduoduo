@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { ImageSliderComponent, TopMenu } from 'src/app/shared/components';
 
 @Component({
@@ -102,15 +103,12 @@ export class HomeContainerComponent implements OnInit {
   // 通过属性组件的类型或指令来选择
   @ViewChild(ImageSliderComponent) imgSlider;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
   handleTabSelected(topMenu: TopMenu) {
-    const colors = ['red', 'blue', 'black'];
-    const idx = Math.floor(Math.random() * 3);
-    this.scrollableTabBgColor = colors[idx];
-    console.log(topMenu);
+    this.router.navigate(['home', topMenu.link])
   }
 
   ngAfterViewInit(): void {
