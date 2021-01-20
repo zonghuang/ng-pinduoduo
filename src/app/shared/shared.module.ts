@@ -7,6 +7,7 @@ import {
   ScrollableTabComponent,
 } from './components';
 import { GridItemDirective, GridItemImageDirective, GridItemTitleDirective } from './directives';
+import { AgoPipe } from './pipes';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { GridItemDirective, GridItemImageDirective, GridItemTitleDirective } fro
     GridItemDirective,
     GridItemImageDirective,
     GridItemTitleDirective,
+    AgoPipe,
   ],
   imports: [CommonModule, FormsModule],
   exports: [
@@ -27,6 +29,7 @@ import { GridItemDirective, GridItemImageDirective, GridItemTitleDirective } fro
     GridItemDirective,
     GridItemImageDirective,
     GridItemTitleDirective,
+    AgoPipe,
   ],
 })
 export class SharedModule {}
