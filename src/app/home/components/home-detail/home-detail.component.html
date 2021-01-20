@@ -1,4 +1,4 @@
-<div *ngIf="selectedTabLink === 'hot' else other">
+<div *ngIf="selectedTabLink === 'hot'; else other">
   <app-image-slider [sliders]="imageSliders"></app-image-slider>
   <app-horizontal-grid>
     <span appGridItem *ngFor="let item of channels">
@@ -7,6 +7,21 @@
     </span>
   </app-horizontal-grid>
 </div>
-<ng-template #other>
-  Other works
-</ng-template>
+<ng-template #other> Other works </ng-template>
+<!-- <a [routerLink]="['grand']">link to grand</a> -->
+<!-- <a [routerLink]="[ 'grand' ]" routerLinkActive="active">link to grand</a> -->
+<a
+  [routerLink]="['grand']"
+  routerLinkActive="active"
+  [queryParams]="{ name: 'zhangsan', gender: 'male' }"
+  >link to grand</a
+>
+<router-outlet></router-outlet>
+
+<a
+  [routerLink]="[{outlets: {second: ['aux']}}]"
+  routerLinkActive="active"
+  [queryParams]="{ name: 'zhangsan', gender: 'male' }"
+  >link to grand</a
+>
+<router-outlet name="second"></router-outlet>
