@@ -5,6 +5,7 @@ import {
   HomeContainerComponent,
   HomeDetailComponent,
   HomeGrandComponent,
+  ParentComponent,
 } from './components';
 
 const routes: Routes = [
@@ -29,10 +30,15 @@ const routes: Routes = [
             path: 'aux',
             component: HomeAuxComponent,
             outlet: 'second',
-          }
+          },
         ],
       },
     ],
+  },
+  {
+    path: 'change-detection',
+    pathMatch: 'full',
+    component: ParentComponent,
   },
 ];
 
