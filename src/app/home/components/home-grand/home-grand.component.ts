@@ -1,4 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, Injector, OnInit } from '@angular/core';
+
+@Injectable()
+class Product {
+  constructor(private name: string, private color: string) {}
+}
+
+@Injectable()
+class PurchaseOrder {
+  private amount: number;
+  constructor(private product: Product) {}
+}
 
 @Component({
   selector: 'app-home-grand',
@@ -14,9 +25,27 @@ export class HomeGrandComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    // this.date = new Date();
     this.date = this.minusDays(new Date(), 2);
     this.price = 123.32;
+    const injector = Injector.create({
+      providers: [
+        {
+          provide: Product,
+          // useClass: Product,
+          useFactory: () => {
+            return new Product('小米手机', '黑色');
+          },
+          deps: [],
+        },
+        {
+          provide: PurchaseOrder,
+          useClass: PurchaseOrder,
+          deps: [Product],
+        },
+      ],
+    });
+    console.log(injector.get(Product));
+    console.log(injector.get(PurchaseOrder));
   }
 
   minusDays(date: Date, days: number) {

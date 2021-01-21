@@ -16,6 +16,16 @@ import {
     HomeGrandComponent,
     HomeAuxComponent,
   ],
+  // providers: [PurchaseOeder],
+  // providers: [
+  //   {
+  //     provide: Product,
+  //     useFactory: () => {
+  //       return new Product('小米手机', '黑色');
+  //     },
+  //     deps: [],
+  //   },
+  // ],
   imports: [SharedModule, HomeRoutingModule],
 })
 export class HomeModule {}
