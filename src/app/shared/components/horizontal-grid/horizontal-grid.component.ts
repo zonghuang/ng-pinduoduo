@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 
 export interface Channel {
   id: number;
@@ -10,6 +15,7 @@ export interface Channel {
   selector: 'app-horizontal-grid',
   templateUrl: './horizontal-grid.component.html',
   styleUrls: ['./horizontal-grid.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HorizontalGridComponent implements OnInit {
   @Input() cols = 8;

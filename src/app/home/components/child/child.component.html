@@ -1,4 +1,5 @@
 <span [textContent]="title"></span>
-<p>
-  child works!
-</p>
+<span [textContent]="time | date: 'HH:mm:ss:SSS'"></span>
+<span #timeRef></span>
+<p>child works!</p>
+<button (click)="handleClick()">触发赃值检测</button>

@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   Input,
@@ -22,6 +23,7 @@ export interface ImageSlider {
   selector: 'app-image-slider',
   templateUrl: './image-slider.component.html',
   styleUrls: ['./image-slider.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImageSliderComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() sliders: ImageSlider[] = [];

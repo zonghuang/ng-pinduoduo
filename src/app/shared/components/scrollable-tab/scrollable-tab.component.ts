@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 export interface TopMenu {
   id: number;
@@ -10,6 +16,7 @@ export interface TopMenu {
   selector: 'app-scrollable-tab',
   templateUrl: './scrollable-tab.component.html',
   styleUrls: ['./scrollable-tab.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScrollableTabComponent {
   selectedIndex = -1;
