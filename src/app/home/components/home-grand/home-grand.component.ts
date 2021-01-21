@@ -1,4 +1,10 @@
-import { Component, Injectable, Injector, OnInit } from '@angular/core';
+import {
+  Component,
+  Injectable,
+  InjectionToken,
+  Injector,
+  OnInit,
+} from '@angular/core';
 
 @Injectable()
 class Product {
@@ -27,6 +33,7 @@ export class HomeGrandComponent implements OnInit {
   ngOnInit() {
     this.date = this.minusDays(new Date(), 2);
     this.price = 123.32;
+    const token = new InjectionToken<string>('baseUrl');
     const injector = Injector.create({
       providers: [
         {
@@ -42,10 +49,15 @@ export class HomeGrandComponent implements OnInit {
           useClass: PurchaseOrder,
           deps: [Product],
         },
+        {
+          provide: token,
+          useValue: 'http://localhost',
+        },
       ],
     });
     console.log(injector.get(Product));
     console.log(injector.get(PurchaseOrder));
+    console.log(injector.get(token));
   }
 
   minusDays(date: Date, days: number) {

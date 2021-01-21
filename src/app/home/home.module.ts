@@ -8,6 +8,7 @@ import {
   HomeDetailComponent,
   HomeGrandComponent,
 } from './components';
+import { HomeService, token } from './services';
 
 @NgModule({
   declarations: [
@@ -16,16 +17,8 @@ import {
     HomeGrandComponent,
     HomeAuxComponent,
   ],
-  // providers: [PurchaseOeder],
-  // providers: [
-  //   {
-  //     provide: Product,
-  //     useFactory: () => {
-  //       return new Product('小米手机', '黑色');
-  //     },
-  //     deps: [],
-  //   },
-  // ],
+  // providers: [HomeService, { provide: token, useValue: 'http://local.dev' }],
+  providers: [{ provide: token, useValue: 'http://local.dev' }],
   imports: [SharedModule, HomeRoutingModule],
 })
 export class HomeModule {}

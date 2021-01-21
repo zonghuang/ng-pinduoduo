@@ -2,13 +2,13 @@
   {{ obj | json }}
 </p>
 <p>
-  {{ date | date: 'yyyy-MM-dd' }}
+  {{ date | date: "yyyy-MM-dd" }}
 </p>
 <p>
   {{ date | appAgo }}
 </p>
 <p>
-  {{ price | currency: 'CNY': 'symbol': '0.0-2' }}
+  {{ price | currency: "CNY":"symbol":"0.0-2" }}
 </p>
 <p>
   {{ data | slice: 1:3 }}
