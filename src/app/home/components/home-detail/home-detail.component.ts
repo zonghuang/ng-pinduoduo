@@ -2,9 +2,12 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  OnDestroy,
   OnInit,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { Channel, ImageSlider } from 'src/app/shared/components';
 import { HomeService } from '../../services/home.service';
 
@@ -14,10 +17,11 @@ import { HomeService } from '../../services/home.service';
   styleUrls: ['./home-detail.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeDetailComponent implements OnInit {
-  imageSliders: ImageSlider[] = [];
-  channels: Channel[] = [];
-  selectedTabLink;
+export class HomeDetailComponent implements OnInit, OnDestroy {
+  imageSliders$: Observable<ImageSlider[]>;
+  channels$: Observable<Channel[]>;
+  selectedTabLink$: Observable<string>;
+  sub: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,21 +30,18 @@ export class HomeDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.paramMap.subscribe((params) => {
-      console.log('路径参数：', params);
-      this.selectedTabLink = params.get('tabLink');
-      this.cd.markForCheck();
-    });
-    this.route.queryParamMap.subscribe((params) => {
+    this.selectedTabLink$ = this.route.paramMap.pipe(
+      filter((params) => params.has('tabLink')),
+      map((params) => params.get('tabLink'))
+    );
+    this.sub = this.route.queryParamMap.subscribe((params) => {
       console.log('查询参数：', params);
     });
-    this.service.getBanners().subscribe((banners) => {
-      this.imageSliders = banners;
-      this.cd.markForCheck();
-    });
-    this.service.getChannels().subscribe((channels) => {
-      this.channels = channels;
-      this.cd.markForCheck();
-    });
+    this.imageSliders$ = this.service.getBanners();
+    this.channels$ = this.service.getChannels();
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }
