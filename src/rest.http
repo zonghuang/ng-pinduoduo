@@ -23,3 +23,28 @@ Content-Type: application/json
 
 ###
 DELETE {{baseUrl}}/posts/1 HTTP/1.1
+
+###
+
+GET http://39.106.75.209/api/tabs HTTP/1.1
+
+###
+GET  http://39.106.75.209/api/banners HTTP/1.1
+
+###
+GET http://39.106.75.209/api/channels HTTP/1.1
+
+###
+GET http://39.106.75.209/api/products HTTP/1.1
+
+###
+GET http://39.106.75.209/api/products?categories_like=hot HTTP/1.1
+
+###
+GET http://39.106.75.209/api/profile HTTP/1.1
+
+###
+GET http://39.106.75.209/api/productVariants HTTP/1.1
+
+###
+GET http://39.106.75.209/api/productVariants?_expand=product&_embed=productVariantImages&productId=1 HTTP/1.1

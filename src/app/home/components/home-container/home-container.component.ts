@@ -17,7 +17,9 @@ export class HomeContainerComponent implements OnInit {
     private service: HomeService,
     @Inject(token) private baseUrl: string
   ) {
-    this.topMenus = this.service.getTabs();
+    this.service.getTabs().subscribe((tabs) => {
+      this.topMenus = tabs;
+    });
     console.log(this.baseUrl);
   }
 

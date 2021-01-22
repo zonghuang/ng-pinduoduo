@@ -34,7 +34,13 @@ export class HomeDetailComponent implements OnInit {
     this.route.queryParamMap.subscribe((params) => {
       console.log('查询参数：', params);
     });
-    this.imageSliders = this.service.getBanners();
-    this.channels = this.service.getChannels();
+    this.service.getBanners().subscribe((banners) => {
+      this.imageSliders = banners;
+      this.cd.markForCheck();
+    });
+    this.service.getChannels().subscribe((channels) => {
+      this.channels = channels;
+      this.cd.markForCheck();
+    });
   }
 }

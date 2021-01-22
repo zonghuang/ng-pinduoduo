@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
@@ -17,6 +18,7 @@ import { registerLocaleData } from '@angular/common';
     FormsModule,
     SharedModule,
     AppRoutingModule,
+    HttpClientModule,
     HomeModule,
   ],
   providers: [
