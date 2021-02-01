@@ -68,7 +68,7 @@ export class ImageSliderComponent implements OnInit, AfterViewInit, OnDestroy {
   getIndex(idx: number): number {
     return idx >= 0
       ? idx % this.sliders.length
-      : this.sliders.length - (Math.abs(idx) & this.sliders.length);
+      : this.sliders.length - (Math.abs(idx) % this.sliders.length);
   }
 
   handleScroll(ev) {

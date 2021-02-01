@@ -22,7 +22,7 @@ export class CountDownComponent implements OnInit {
     );
   }
 
-  getCountDownObservable(startDate: Date, futureDate: Date) {
+  private getCountDownObservable(startDate: Date, futureDate: Date) {
     return interval(1000).pipe(
       map((elapse) => this.diffInSec(startDate, futureDate) - elapse),
       takeWhile((gap) => gap >= 0),
