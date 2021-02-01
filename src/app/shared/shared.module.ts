@@ -6,8 +6,13 @@ import {
   ImageSliderComponent,
   ScrollableTabComponent,
   CountDownComponent,
+  FooterComponent,
 } from './components';
-import { GridItemDirective, GridItemImageDirective, GridItemTitleDirective } from './directives';
+import {
+  GridItemDirective,
+  GridItemImageDirective,
+  GridItemTitleDirective,
+} from './directives';
 import { AgoPipe } from './pipes';
 
 @NgModule({
@@ -16,6 +21,7 @@ import { AgoPipe } from './pipes';
     ImageSliderComponent,
     HorizontalGridComponent,
     CountDownComponent,
+    FooterComponent,
     GridItemDirective,
     GridItemImageDirective,
     GridItemTitleDirective,
@@ -29,6 +35,7 @@ import { AgoPipe } from './pipes';
     ImageSliderComponent,
     HorizontalGridComponent,
     CountDownComponent,
+    FooterComponent,
     GridItemDirective,
     GridItemImageDirective,
     GridItemTitleDirective,
