@@ -12,6 +12,8 @@ import localZh from '@angular/common/locales/zh-Hans';
 import { registerLocaleData } from '@angular/common';
 import { RecommendModule } from './recommend';
 import { MyModule } from './my';
+import { ChatModule } from './chat';
+import { CategoryModule } from './category';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +26,8 @@ import { MyModule } from './my';
     HomeModule,
     RecommendModule,
     MyModule,
+    ChatModule,
+    CategoryModule,
   ],
   providers: [
     {
