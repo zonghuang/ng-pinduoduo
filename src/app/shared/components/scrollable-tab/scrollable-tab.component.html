@@ -9,16 +9,19 @@
     "
     [ngClass]="{ even: even, odd: odd }"
   >
-    <a
+    <!-- <a
       
       [ngStyle]="{ color: i === selectedIndex ? titleActiveColor : titleColor }"
       (click)="handleSelection(i)"
-    >
+    > -->
+    <a   
+    (click)="handleSelection(i)"
+  >
       {{ menu.title }}
     </a>
     <span
       [ngStyle]="{ 'background-color': indicatorColor }"
-      *ngIf="i === selectedIndex"
+      *ngIf="menu.link === selectedTabLink"
     ></span>
   </li>
 </ul>

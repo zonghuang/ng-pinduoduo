@@ -4,6 +4,7 @@
   [indicatorColor]="'red'"
   [titleColor]="'#3f3f3f'"
   [titleActiveColor]="'red'"
+  [selectedTabLink]="selectedTabLink$ | async"
   (tabSelected)="handleTabSelected($event)"
 >
 </app-scrollable-tab>

@@ -10,6 +10,8 @@ import { HomeModule, NotificationInterceptor, ParamInterceptor } from './home';
 
 import localZh from '@angular/common/locales/zh-Hans';
 import { registerLocaleData } from '@angular/common';
+import { RecommendModule } from './recommend';
+import { MyModule } from './my';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +22,8 @@ import { registerLocaleData } from '@angular/common';
     AppRoutingModule,
     HttpClientModule,
     HomeModule,
+    RecommendModule,
+    MyModule,
   ],
   providers: [
     {

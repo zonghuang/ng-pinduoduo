@@ -19,7 +19,7 @@ export interface TopMenu {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScrollableTabComponent {
-  selectedIndex = -1;
+  @Input() selectedTabLink: string;
   @Input() menus: TopMenu[] = [];
   @Input() backgroundColor = '#fff';
   @Input() titleActiveColor = 'yellow';
@@ -32,7 +32,6 @@ export class ScrollableTabComponent {
   }
 
   handleSelection(index: number) {
-    this.selectedIndex = index;
-    this.tabSelected.emit(this.menus[this.selectedIndex]);
+    this.tabSelected.emit(this.menus[index]);
   }
 }

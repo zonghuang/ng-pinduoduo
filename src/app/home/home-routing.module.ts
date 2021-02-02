@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {
-  HomeAuxComponent,
   HomeContainerComponent,
   HomeDetailComponent,
-  HomeGrandComponent,
-  ParentComponent,
 } from './components';
 
 const routes: Routes = [
@@ -21,24 +18,8 @@ const routes: Routes = [
       {
         path: ':tabLink',
         component: HomeDetailComponent,
-        children: [
-          {
-            path: 'grand',
-            component: HomeGrandComponent,
-          },
-          {
-            path: 'aux',
-            component: HomeAuxComponent,
-            outlet: 'second',
-          },
-        ],
       },
     ],
-  },
-  {
-    path: 'change-detection',
-    pathMatch: 'full',
-    component: ParentComponent,
   },
 ];
 
