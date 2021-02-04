@@ -8,7 +8,7 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
-import { Ad } from 'src/app/shared';
+import { Ad, Product } from 'src/app/shared';
 import { Channel, ImageSlider } from 'src/app/shared/components';
 import { HomeService } from '../../services/home.service';
 
@@ -23,6 +23,7 @@ export class HomeDetailComponent implements OnInit, OnDestroy {
   channels$: Observable<Channel[]>;
   selectedTabLink$: Observable<string>;
   ad$: Observable<Ad>;
+  products$: Observable<Product[]>;
   sub: Subscription;
 
   constructor(
@@ -45,6 +46,9 @@ export class HomeDetailComponent implements OnInit, OnDestroy {
       switchMap((tab) => this.service.getAdByTab(tab)),
       filter((ads) => ads.length > 0),
       map((ads) => ads[0])
+    );
+    this.products$ = this.selectedTabLink$.pipe(
+      switchMap((tab) => this.service.getProductByTab(tab)),
     );
   }
 

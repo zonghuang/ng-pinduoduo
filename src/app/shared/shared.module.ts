@@ -7,6 +7,7 @@ import {
   ScrollableTabComponent,
   CountDownComponent,
   FooterComponent,
+  VerticalGridComponent,
 } from './components';
 import {
   GridItemDirective,
@@ -22,6 +23,7 @@ import { AgoPipe } from './pipes';
     HorizontalGridComponent,
     CountDownComponent,
     FooterComponent,
+    VerticalGridComponent,
     GridItemDirective,
     GridItemImageDirective,
     GridItemTitleDirective,
@@ -36,6 +38,7 @@ import { AgoPipe } from './pipes';
     HorizontalGridComponent,
     CountDownComponent,
     FooterComponent,
+    VerticalGridComponent,
     GridItemDirective,
     GridItemImageDirective,
     GridItemTitleDirective,
