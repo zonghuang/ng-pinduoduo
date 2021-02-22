@@ -16,6 +16,7 @@
   <app-product-card
     *ngFor="let product of products$ | async"
     [product]="product"
+    [routerLink]="['/products', product.id]"
   >
   </app-product-card>
 </app-vertical-grid>

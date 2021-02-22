@@ -11,9 +11,11 @@ import {
   ProductCardComponent,
 } from './components';
 import {
+  AvatarDirective,
   GridItemDirective,
   GridItemImageDirective,
   GridItemTitleDirective,
+  TagDirective,
 } from './directives';
 import { AgoPipe } from './pipes';
 
@@ -29,6 +31,8 @@ import { AgoPipe } from './pipes';
     GridItemDirective,
     GridItemImageDirective,
     GridItemTitleDirective,
+    TagDirective,
+    AvatarDirective,
     AgoPipe,
   ],
   imports: [CommonModule, FormsModule],
@@ -45,6 +49,8 @@ import { AgoPipe } from './pipes';
     GridItemDirective,
     GridItemImageDirective,
     GridItemTitleDirective,
+    TagDirective,
+    AvatarDirective,
     AgoPipe,
   ],
 })
