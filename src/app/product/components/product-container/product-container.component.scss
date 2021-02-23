@@ -10,3 +10,38 @@ app-back-button {
   top: 1.2rem;
   z-index: 2000;
 }
+.price-section {
+  display: grid;
+  grid-template-columns: 25% 25% 1fr;
+  place-content: start;
+  place-items: baseline;
+  grid-gap: 3px;
+  margin: 0 5px;
+}
+.title,
+.coupon,
+.guarantee {
+  grid-column: 1/4;
+}
+.price-section .now-price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e02f29;
+}
+.price-section .list-price {
+  color: #3f3f3f;
+  text-decoration: line-through;
+}
+.price-section .sales-count {
+  justify-self: end;
+}
+.price-section .title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 3px 0;
+}
+.price-section .guarantee {
+  color: darkgray;
+  font-size: 1.1rem;
+  margin: 3px 0;
+}
