@@ -9,6 +9,7 @@ import {
   FooterComponent,
   VerticalGridComponent,
   ProductCardComponent,
+  ProductTileComponent,
 } from './components';
 import {
   AvatarDirective,
@@ -28,6 +29,7 @@ import { AgoPipe } from './pipes';
     FooterComponent,
     VerticalGridComponent,
     ProductCardComponent,
+    ProductTileComponent,
     GridItemDirective,
     GridItemImageDirective,
     GridItemTitleDirective,
@@ -46,6 +48,7 @@ import { AgoPipe } from './pipes';
     FooterComponent,
     VerticalGridComponent,
     ProductCardComponent,
+    ProductTileComponent,
     GridItemDirective,
     GridItemImageDirective,
     GridItemTitleDirective,
