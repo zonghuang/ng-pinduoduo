@@ -8,3 +8,12 @@ export interface ProductVariant {
   listPrice: number;
   productVariantImages: ImageSlider;
 }
+
+export interface GroupOrder {
+  id: number;
+  productId: number;
+  startBy: string;
+  avatar: string;
+  startAt: Date;
+  remainingNumber: number;
+}
