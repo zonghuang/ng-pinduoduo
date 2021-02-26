@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+import { DialogService } from './dialog';
 import { TabItem } from './shared/domain';
 
 @Component({
@@ -12,8 +13,9 @@ import { TabItem } from './shared/domain';
 export class AppComponent implements OnInit {
   title = '拼多多';
   selectedIndex$: Observable<number>;
+  data$: Observable<any>;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private dialogService: DialogService) {}
 
   ngOnInit(): void {
     this.selectedIndex$ = this.router.events.pipe(
@@ -24,6 +26,7 @@ export class AppComponent implements OnInit {
       }),
       map((path) => this.getSelectedIndex(path))
     );
+    this.data$ = this.dialogService.getData();
   }
 
   handleTabSelect(tab: TabItem) {
@@ -41,4 +44,9 @@ export class AppComponent implements OnInit {
       ? 4
       : 0;
   }
+
+  removeDialog() {
+    this.dialogService.close();
+  }
+  
 }

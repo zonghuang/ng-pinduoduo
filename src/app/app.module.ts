@@ -39,12 +39,12 @@ import { ProductModule } from './product';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ParamInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: NotificationInterceptor,
-      multi: true
+      multi: true,
     },
   ],
   bootstrap: [AppComponent],

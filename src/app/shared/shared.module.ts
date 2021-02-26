@@ -20,6 +20,7 @@ import {
   TagDirective,
 } from './directives';
 import { AgoPipe } from './pipes';
+import { DialogModule } from '../dialog';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { AgoPipe } from './pipes';
   exports: [
     CommonModule,
     FormsModule,
+    DialogModule,
     ScrollableTabComponent,
     ImageSliderComponent,
     HorizontalGridComponent,

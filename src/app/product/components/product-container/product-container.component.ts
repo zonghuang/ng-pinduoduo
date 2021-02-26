@@ -9,7 +9,8 @@ import { Observable, Subscription } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
 import { ProductVariant } from '../../domain';
 import { OrderService } from '../../services';
-// import { DialogService } from 'src/app/dialog';
+import { DialogService } from 'src/app/dialog';
+import { ProductVariantDialogComponent } from '../product-variant-dialog';
 
 @Component({
   selector: 'app-product-container',
@@ -26,7 +27,7 @@ export class ProductContainerComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private service: OrderService,
-    // private dialogService: DialogService
+    private dialogService: DialogService
   ) {}
 
   ngOnInit() {
@@ -44,7 +45,6 @@ export class ProductContainerComponent implements OnInit {
   handleDirectBuy(variants: ProductVariant[]) {}
 
   handleGroupBuy(variants: ProductVariant[]) {
-    /*
     const top = 40;
     // 传入 Output，EventEmitter 其实就是一个 Subject
     const formSubmitted = new EventEmitter();
@@ -70,12 +70,11 @@ export class ProductContainerComponent implements OnInit {
       outputs: { formSubmitted, selected },
       position: {
         top: `${top}%`,
-        left: '50%',
+        left: '0',
         width: '100%',
         height: `${100 - top}%`,
       },
     });
-    */
   }
 
 }
