@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { ProductRoutingModule } from './product-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { GroupItemComponent, GroupShortListComponent, ProductAmountComponent, ProductContainerComponent, ProductVariantDialogComponent } from './components';
+import { ConfirmOrderComponent, GroupItemComponent, GroupShortListComponent, PaymentComponent, ProductAmountComponent, ProductContainerComponent, ProductVariantDialogComponent } from './components';
 
 @NgModule({
   declarations: [
@@ -11,6 +11,8 @@ import { GroupItemComponent, GroupShortListComponent, ProductAmountComponent, Pr
     GroupShortListComponent,
     ProductVariantDialogComponent,
     ProductAmountComponent,
+    ConfirmOrderComponent,
+    PaymentComponent,
   ],
   imports: [SharedModule, ProductRoutingModule],
   entryComponents: [ProductVariantDialogComponent]
