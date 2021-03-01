@@ -9,12 +9,16 @@ import { ChildConfig, DomService } from './dom.service';
 export class DialogService {
   private readonly dialogElementId = 'dialog-container';
   private readonly overlayElementId = 'overlay';
-  private data$ = new BehaviorSubject<object | null>(null);
+  private data$: BehaviorSubject<object | null>;
+  // private data$ = new BehaviorSubject<object | null>(null);
 
   constructor(
     private domService: DomService,
     @Inject(DOCUMENT) private document: Document
-  ) {}
+  ) {
+    const initialData = localStorage.getItem('data');
+    this.data$ = new BehaviorSubject<object | null>(JSON.parse(initialData));
+  }
 
   open(component: Type<any>, childConfig: ChildConfig) {
     this.domService.appendComponentTo(
@@ -49,6 +53,7 @@ export class DialogService {
 
   saveData(data: object | null) {
     this.data$.next(data);
+    localStorage.setItem('data', JSON.stringify(data));
   }
 
   private toggleVisibility(element: HTMLElement) {

@@ -10,7 +10,7 @@ import { filter, map, switchMap } from 'rxjs/operators';
 import { ProductVariant } from '../../domain';
 import { OrderService } from '../../services';
 import { DialogService } from 'src/app/dialog';
-import { ProductVariantDialogComponent } from '../product-variant-dialog';
+import { ProductVariantDialogComponent } from '../../../shared/components/product-variant-dialog';
 
 @Component({
   selector: 'app-product-container',

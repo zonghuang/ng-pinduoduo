@@ -11,6 +11,8 @@ import {
   ProductCardComponent,
   ProductTileComponent,
   BackButtonComponent,
+  ProductVariantDialogComponent,
+  ProductAmountComponent,
 } from './components';
 import {
   AvatarDirective,
@@ -32,6 +34,8 @@ import { DialogModule } from '../dialog';
     VerticalGridComponent,
     ProductCardComponent,
     ProductTileComponent,
+    ProductVariantDialogComponent,
+    ProductAmountComponent,
     BackButtonComponent,
     GridItemDirective,
     GridItemImageDirective,
@@ -40,11 +44,10 @@ import { DialogModule } from '../dialog';
     AvatarDirective,
     AgoPipe,
   ],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, DialogModule,],
   exports: [
     CommonModule,
     FormsModule,
-    DialogModule,
     ScrollableTabComponent,
     ImageSliderComponent,
     HorizontalGridComponent,
@@ -53,6 +56,8 @@ import { DialogModule } from '../dialog';
     VerticalGridComponent,
     ProductCardComponent,
     ProductTileComponent,
+    ProductVariantDialogComponent,
+    ProductAmountComponent,
     BackButtonComponent,
     GridItemDirective,
     GridItemImageDirective,
@@ -61,5 +66,6 @@ import { DialogModule } from '../dialog';
     AvatarDirective,
     AgoPipe,
   ],
+  entryComponents: [ProductVariantDialogComponent]
 })
 export class SharedModule {}
