@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
 import {
-  HttpEvent, HttpInterceptor, HttpHandler, HttpRequest
+  HttpEvent,
+  HttpInterceptor,
+  HttpHandler,
+  HttpRequest,
 } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ParamInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     const modifiedReq = req.clone({
-      setParams: { icode: environment.icode }
+      setParams: { icode: environment.icode },
     });
-    return next.handle(req);
+    return next.handle(modifiedReq);
   }
 }

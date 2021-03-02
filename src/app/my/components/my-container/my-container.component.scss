@@ -15,8 +15,8 @@
   padding: 0 0.5rem;
   display: grid;
   grid-template-areas:
-    'avatar name cashback'
-    'avatar badge membership';
+    "avatar name cashback"
+    "avatar badge membership";
   grid-template-columns: auto 1fr auto;
   grid-gap: 0.5rem;
   place-items: center start;

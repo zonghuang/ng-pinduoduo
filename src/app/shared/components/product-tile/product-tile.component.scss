@@ -21,7 +21,6 @@
 }
 .product-price {
   width: 100%;
-  grid-area: price;
   display: grid;
   grid-gap: 3px;
   grid-template-columns: repeat(3, auto);

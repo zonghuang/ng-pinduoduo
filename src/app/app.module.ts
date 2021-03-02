@@ -19,7 +19,7 @@ import { registerLocaleData } from '@angular/common';
     SharedModule,
     AppRoutingModule,
     HttpClientModule,
-    HomeModule
+    HomeModule,
   ],
   providers: [
     {

@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
         const arr = ev.url.split('/');
         return arr.length > 1 ? arr[1] : 'home';
       }),
-      map((path) => this.getSelectedIndex(path))
+      map((tab) => this.getSelectedIndex(tab))
     );
     this.data$ = this.dialogService.getData();
   }
@@ -48,5 +48,4 @@ export class AppComponent implements OnInit {
   removeDialog() {
     this.dialogService.close();
   }
-  
 }

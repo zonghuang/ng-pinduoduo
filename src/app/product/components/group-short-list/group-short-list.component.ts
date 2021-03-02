@@ -1,18 +1,22 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { GroupOrder } from '../../domain';
 
 @Component({
   selector: 'app-group-short-list',
   templateUrl: './group-short-list.component.html',
   styleUrls: ['./group-short-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GroupShortListComponent implements OnInit {
-
   @Input() groupOrders: GroupOrder[] = [];
   @Input() row = 2;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.groupOrders = [
@@ -22,7 +26,7 @@ export class GroupShortListComponent implements OnInit {
         startBy: 'zhangsan',
         avatar: 'assets/avatars/avatar001.png',
         startAt: new Date(),
-        remainingNumber: 2
+        remainingNumber: 2,
       },
       {
         id: 2,
@@ -30,9 +34,8 @@ export class GroupShortListComponent implements OnInit {
         startBy: 'lisi',
         avatar: 'assets/avatars/avatar002.png',
         startAt: new Date(2019, 2, 20, 10, 10, 10),
-        remainingNumber: 1
-      }
+        remainingNumber: 1,
+      },
     ];
   }
-
 }

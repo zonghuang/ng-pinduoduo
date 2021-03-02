@@ -11,14 +11,14 @@
   display: block;
 }
 #dialog-container {
-  position: absolute;
+  position: fixed;
   top: 50%;
-  left: 0;
+  left: 50%;
   width: 100%;
   background-color: #fff;
-  margin-left: 0;
+  margin-left: -50%;
   text-align: center;
-  box-shadow: 0 0 2px 1px;
+  box-shadow: 0 0 2px 1px black;
   z-index: 3000;
 }
 #overlay {

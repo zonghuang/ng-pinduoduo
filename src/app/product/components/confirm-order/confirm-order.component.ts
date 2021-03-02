@@ -9,7 +9,7 @@ import { Payment } from '../payment';
   selector: 'app-confirm-order',
   templateUrl: './confirm-order.component.html',
   styleUrls: ['./confirm-order.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConfirmOrderComponent implements OnInit {
   item$: Observable<object | null>;
@@ -24,21 +24,21 @@ export class ConfirmOrderComponent implements OnInit {
         id: 1,
         name: '微信支付',
         icon: 'assets/icons/wechat_pay.png',
-        desc: '50元以内可免密支付'
+        desc: '50元以内可免密支付',
       },
       {
         id: 2,
         name: '支付宝',
-        icon: 'assets/icons/alipay.png'
+        icon: 'assets/icons/alipay.png',
       },
       {
         id: 3,
         name: '找微信好友支付',
-        icon: 'assets/icons/friends.png'
-      }
+        icon: 'assets/icons/friends.png',
+      },
     ];
     this.item$ = this.dialogService.getData().pipe(
-      tap(val => console.log(val)),
+      tap((val) => console.log(val)),
       share()
     );
     const unitPrice$ = this.item$.pipe(

@@ -18,7 +18,7 @@
       <img
         appAvatar
         *ngFor="let avatar of product.buyerAvatars; let idx = index"
-        [ngStyle]="{left: -idx * 10 + 'px', 'z-index': 1000 - idx}"
+        [ngStyle]="{ left: -idx * 10 + 'px', 'z-index': 1000 - idx }"
         [src]="avatar"
         alt=""
       />

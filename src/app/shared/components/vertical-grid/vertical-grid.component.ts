@@ -1,20 +1,24 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 
 @Component({
   selector: 'app-vertical-grid',
   templateUrl: './vertical-grid.component.html',
-  styleUrls: ['./vertical-grid.component.scss']
+  styleUrls: ['./vertical-grid.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VerticalGridComponent implements OnInit {
-
   @Input() itemWidth = '4rem';
   @Input() itemHeight = '4rem';
   @Input() gridGap = '5px';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   get templateRows() {
     return `minmax(auto-fill, ${this.itemHeight})`;
@@ -23,5 +27,4 @@ export class VerticalGridComponent implements OnInit {
   get templateColumns() {
     return `repeat(auto-fill, minmax(${this.itemWidth}, 1fr))`;
   }
-
 }

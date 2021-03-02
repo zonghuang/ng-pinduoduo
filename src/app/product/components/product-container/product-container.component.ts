@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  OnDestroy,
   OnInit,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,7 +19,7 @@ import { ProductVariantDialogComponent } from '../../../shared/components/produc
   styleUrls: ['./product-container.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductContainerComponent implements OnInit {
+export class ProductContainerComponent implements OnInit, OnDestroy {
   variants$: Observable<ProductVariant[]>;
   selectedIndex = 0;
   subs: Subscription[] = [];
@@ -40,6 +41,11 @@ export class ProductContainerComponent implements OnInit {
         this.service.getProductVariantsByProductId(productId)
       )
     );
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach((sub) => sub.unsubscribe());
+    this.subs = [];
   }
 
   handleDirectBuy(variants: ProductVariant[]) {}
@@ -70,11 +76,10 @@ export class ProductContainerComponent implements OnInit {
       outputs: { formSubmitted, selected },
       position: {
         top: `${top}%`,
-        left: '0',
+        left: '50%',
         width: '100%',
         height: `${100 - top}%`,
       },
     });
   }
-
 }

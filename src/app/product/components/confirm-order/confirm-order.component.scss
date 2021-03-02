@@ -32,8 +32,8 @@
   width: 100%;
   display: grid;
   grid-template-areas:
-    'location nameAndMobile more'
-    'location address more';
+    "location nameAndMobile more"
+    "location address more";
   place-items: center;
   grid-gap: 2px;
   margin: 0 0.5rem;
@@ -88,9 +88,9 @@
   background-color: #f5f5f5;
   display: grid;
   grid-template-areas:
-    'image name'
-    'image spec'
-    'image price';
+    "image name"
+    "image spec"
+    "image price";
   grid-template-rows: 5rem 1fr;
   grid-gap: 0.5rem;
   place-items: center;

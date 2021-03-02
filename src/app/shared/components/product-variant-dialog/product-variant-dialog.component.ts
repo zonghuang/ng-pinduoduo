@@ -4,7 +4,7 @@ import {
   Input,
   Output,
   EventEmitter,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { ProductVariant } from '../../../product/domain';
 import { DialogService } from 'src/app/dialog/services';
@@ -13,7 +13,7 @@ import { DialogService } from 'src/app/dialog/services';
   selector: 'app-product-variant-dialog',
   templateUrl: './product-variant-dialog.component.html',
   styleUrls: ['./product-variant-dialog.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductVariantDialogComponent implements OnInit {
   @Input() variants: ProductVariant[] = [];
@@ -55,7 +55,7 @@ export class ProductVariantDialogComponent implements OnInit {
     }
     this.formSubmitted.emit({
       variant: this.variants[this.selectedVariantIndex],
-      count: this.count
+      count: this.count,
     });
     this.dialogService.close();
   }

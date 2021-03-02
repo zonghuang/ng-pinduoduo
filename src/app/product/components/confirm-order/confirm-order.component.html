@@ -7,16 +7,10 @@
     <div class="address-bar">
       <img src="assets/icons/location.png" alt="" class="location" />
       <div class="name-and-mobile">
-        <span class="name">
-          张三
-        </span>
-        <span class="mobile">
-          13888888888
-        </span>
+        <span class="name"> 张三 </span>
+        <span class="mobile"> 13888888888 </span>
       </div>
-      <div class="address">
-        北京市海淀区某某路111号不知所云大厦123
-      </div>
+      <div class="address">北京市海淀区某某路111号不知所云大厦123</div>
       <img src="assets/icons/navigate_next.png" alt="" class="more" />
     </div>
     <ul>
@@ -40,7 +34,7 @@
       <span class="product-name">{{ item.variant.product.title }}</span>
       <div class="product-spec">款式：{{ item.variant.name }}</div>
       <div class="product-price">
-        <span>{{ item.variant.price | currency: 'CNY' }}/件</span>
+        <span>{{ item.variant.price | currency: "CNY" }}/件</span>
         <span class="price-condition">退货包运费</span>
       </div>
     </div>
@@ -54,7 +48,7 @@
     <div class="total-price">
       <span>实付款：</span>
       <span class="price-section">{{
-        totalPrice$ | async | currency: 'CNY'
+        totalPrice$ | async | currency: "CNY"
       }}</span>
       <span class="price-condition">&nbsp;免邮费</span>
     </div>

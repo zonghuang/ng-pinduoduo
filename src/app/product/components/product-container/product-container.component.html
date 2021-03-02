@@ -57,12 +57,12 @@
     </div>
     <div class="direct-buy" (click)="handleDirectBuy(productVariants)">
       <div>
-        {{ productVariants[selectedIndex].listPrice | currency: 'CNY' }}
+        {{ productVariants[selectedIndex].listPrice | currency: "CNY" }}
       </div>
       <div>直接购买</div>
     </div>
     <div class="group-buy" (click)="handleGroupBuy(productVariants)">
-      <div>{{ productVariants[selectedIndex].price | currency: 'CNY' }}</div>
+      <div>{{ productVariants[selectedIndex].price | currency: "CNY" }}</div>
       <div>发起拼单</div>
     </div>
   </div>

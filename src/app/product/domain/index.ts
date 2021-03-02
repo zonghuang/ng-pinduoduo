@@ -6,7 +6,7 @@ export interface ProductVariant {
   name: string;
   price: number;
   listPrice: number;
-  productVariantImages: ImageSlider;
+  productVariantImages: ImageSlider[];
 }
 
 export interface GroupOrder {

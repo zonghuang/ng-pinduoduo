@@ -6,10 +6,8 @@ import {
   Input,
   OnDestroy,
   OnInit,
-  QueryList,
   Renderer2,
   ViewChild,
-  ViewChildren,
 } from '@angular/core';
 
 export interface ImageSlider {
@@ -50,18 +48,6 @@ export class ImageSliderComponent implements OnInit, AfterViewInit, OnDestroy {
           this.sliders.length
       );
     }, this.intervalBySeconds * 1000);
-    /*
-    let i = 0;
-    setInterval(() => {
-      this.rd2.setProperty(
-        this.imgSlider.nativeElement,
-        'scrollLeft',
-        ((++i % this.sliders.length) *
-          this.imgSlider.nativeElement.scrollWidth) /
-          this.sliders.length
-      );
-    }, this.intervalBySeconds);
-    */
   }
 
   // 处理数组越界
@@ -73,7 +59,7 @@ export class ImageSliderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   handleScroll(ev) {
     const ratio =
-      (ev.target.scrollLeft * this.sliders.length) / ev.target.scrollWidth;
+      ev.target.scrollLeft / (ev.target.scrollWidth / this.sliders.length);
     this.selectedIndex = Math.round(ratio);
   }
 

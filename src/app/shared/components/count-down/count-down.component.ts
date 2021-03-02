@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
 import { interval, Observable } from 'rxjs';
 import { map, takeWhile, tap } from 'rxjs/operators';
 
@@ -6,6 +11,7 @@ import { map, takeWhile, tap } from 'rxjs/operators';
   selector: 'app-count-down',
   templateUrl: './count-down.component.html',
   styleUrls: ['./count-down.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CountDownComponent implements OnInit {
   @Input() startDate = new Date();
@@ -32,7 +38,7 @@ export class CountDownComponent implements OnInit {
         minute: Math.floor((sec / 60) % 60),
         second: Math.floor(sec % 60),
       })),
-      tap(val => console.log(val)),
+      tap((val) => console.log(val)),
       map(({ hour, minute, second }) => `${hour}:${minute}:${second}`)
     );
   }

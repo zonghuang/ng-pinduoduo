@@ -9,14 +9,7 @@
     "
     [ngClass]="{ even: even, odd: odd }"
   >
-    <!-- <a
-      
-      [ngStyle]="{ color: i === selectedIndex ? titleActiveColor : titleColor }"
-      (click)="handleSelection(i)"
-    > -->
-    <a   
-    (click)="handleSelection(i)"
-  >
+    <a (click)="handleSelection(i)">
       {{ menu.title }}
     </a>
     <span

@@ -1,6 +1,5 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   OnDestroy,
   OnInit,
@@ -8,8 +7,7 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
-import { Ad, Product } from 'src/app/shared';
-import { Channel, ImageSlider } from 'src/app/shared/components';
+import { Ad, Channel, ImageSlider, Product } from 'src/app/shared';
 import { HomeService } from '../../services/home.service';
 
 @Component({
@@ -26,11 +24,7 @@ export class HomeDetailComponent implements OnInit, OnDestroy {
   products$: Observable<Product[]>;
   sub: Subscription;
 
-  constructor(
-    private route: ActivatedRoute,
-    private service: HomeService,
-    private cd: ChangeDetectorRef
-  ) {}
+  constructor(private route: ActivatedRoute, private service: HomeService) {}
 
   ngOnInit() {
     this.selectedTabLink$ = this.route.paramMap.pipe(
@@ -48,7 +42,7 @@ export class HomeDetailComponent implements OnInit, OnDestroy {
       map((ads) => ads[0])
     );
     this.products$ = this.selectedTabLink$.pipe(
-      switchMap((tab) => this.service.getProductByTab(tab)),
+      switchMap((tab) => this.service.getProductByTab(tab))
     );
   }
 

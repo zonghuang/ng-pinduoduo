@@ -44,7 +44,7 @@ import { DialogModule } from '../dialog';
     AvatarDirective,
     AgoPipe,
   ],
-  imports: [CommonModule, FormsModule, DialogModule,],
+  imports: [CommonModule, FormsModule, DialogModule],
   exports: [
     CommonModule,
     FormsModule,
@@ -66,6 +66,6 @@ import { DialogModule } from '../dialog';
     AvatarDirective,
     AgoPipe,
   ],
-  entryComponents: [ProductVariantDialogComponent]
+  entryComponents: [ProductVariantDialogComponent],
 })
 export class SharedModule {}

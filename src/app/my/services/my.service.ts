@@ -5,7 +5,7 @@ import { Profile } from '../domain';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MyService {
   constructor(private http: HttpClient) {}
@@ -20,7 +20,7 @@ export class MyService {
     //   'Content-Type': 'application/json'
     // });
     return this.http.post<Profile>(`${environment.baseUrl}/profile`, profile, {
-      headers
+      headers,
     });
   }
 }
